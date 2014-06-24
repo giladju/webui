@@ -29,8 +29,8 @@ grunt.loadNpmTasks('grunt-bintray-deploy');
     bintrayDeploy: {
     bintray: {
       options: {
-        user: "crabitcoo",
-        apikey: "c4148b6cb01eb14bda3d54635d6897d158b019c7",
+        user: "giladju",
+        apikey: "59a621ca524d14f691318b071e12d7ba5544a77f",
         pkg: {
           repo: "maven"
         }
