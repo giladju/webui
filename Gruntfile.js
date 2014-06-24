@@ -15,6 +15,8 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+grunt.loadNpmTasks('grunt-bintray-deploy');
+
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -23,6 +25,25 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
+
+    bintrayDeploy: {
+    bintray: {
+      options: {
+        user: "crabitcoo",
+        apikey: "c4148b6cb01eb14bda3d54635d6897d158b019c7",
+        pkg: {
+          repo: "maven"
+        }
+      },
+      files: [{
+        expand: true,
+        flatten: true,
+        src: ["index.js", "package.json"],
+        dest: "<%= pkg.version %>",
+        filter: "isFile"
+      }]
+    }
+  },
 
     // Project settings
     yeoman: appConfig,
@@ -356,27 +377,6 @@ module.exports = function (grunt) {
         singleRun: true
       }
     }
-
-    bintrayDeploy: {
-    bintray: {
-      options: {
-        user: "crabitcoo",
-        apikey: "c4148b6cb01eb14bda3d54635d6897d158b019c7",
-        pkg: {
-          repo: "maven",
-          name = 'coo-webui'
-          licenses = ['MIT']
-        }
-      },
-      files: [{
-        expand: true,
-        flatten: true,
-        src: ["index.js", "package.json"],
-        dest: "<%= pkg.version %>",
-        filter: "isFile"
-      }]
-    }
-
   });
 
 
