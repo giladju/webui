@@ -33,7 +33,6 @@ grunt.loadNpmTasks('grunt-bintray-deploy');
         apikey: "59a621ca524d14f691318b071e12d7ba5544a77f",
         pkg: {
           repo: "maven"
-	  version: "0.1"
         }
       },
       files: [{
